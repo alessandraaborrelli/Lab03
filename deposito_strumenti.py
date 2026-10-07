@@ -1,3 +1,5 @@
+from csv import reader
+
 class DepositoStrumenti:
     def __init__(self, nome, responsabile):
         """Inizializza gli attributi e le strutture dati"""
@@ -6,6 +8,25 @@ class DepositoStrumenti:
     def carica_file_strumenti(self, file_path):
         """Carica gli strumenti dal file"""
         # TODO
+        try:
+            filein = open(file_path, "r")
+            file_read = reader(filein)
+
+            for line in file_read:
+                codice = line[0]
+                tipo = line[1]
+                marca = line[2]
+                anno = line[3]
+                valore = line[4]
+
+            filein.close()
+
+        except FileNotFoundError:
+            print("File non trovato!")
+
+
+
+
 
     def aggiungi_strumento(self, tipo, marca, anno_acquisto, valore):
         """Aggiunge uno strumento nel deposito: aggiunge solo nel sistema e non aggiorna il file"""
