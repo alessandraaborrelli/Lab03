@@ -33,7 +33,7 @@ def main():
 
         elif scelta == "3":
             tipo = input("Tipo di strumento: ")
-            marca = input("Marca: ")
+            marca = input("Marca: ").strip().capitalize() # per ordinare gli strumenti in modo corretto in base alla marca
             try:
                 anno_acquisto = int(input("Anno di acquisto: ").strip())
                 valore = float(input("Valore (euro): ").strip())
