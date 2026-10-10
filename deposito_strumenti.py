@@ -90,7 +90,7 @@ class DepositoStrumenti:
             raise Exception("Strumento non presente nel sistema!")
 
         # verifica che lo strumento non sia gia in presitito
-        for p in self.prestiti:
+        for p in self.prestiti.values():
             if p["id_strumento"] == id_strumento:
                 raise Exception("Strumento gia' in prestito!")
 
@@ -101,7 +101,7 @@ class DepositoStrumenti:
         prestito = {"codice": id_prestito, "data": data, "id_strumento": id_strumento, "cognome_allievo": cognome_allievo}
 
         # aggiungiamo il prestito nel dizionario con come chiave il codice ("P1") e come
-        # valore il prestito
+        # valore il dizionario di prestito
         # dunque avro' un disizionario del tipo: {"P1": {prestito}, "P2": {prestito}...}
         self.prestiti[id_prestito] = prestito
 
